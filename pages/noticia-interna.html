@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- Página template para exibição dinâmica de notícias internas -->
+<html lang="pt-br">
+<head>
+    <!-- Codificação de caracteres para suportar acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Configuração de viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título provisório — será atualizado pelo JavaScript ao carregar a notícia -->
+    <title>Portal Manauara - Carregando Notícia...</title>
+    
+    <!-- Importação das fontes Google Fonts: Montserrat para títulos e Open Sans para corpo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Arquivos de estilo CSS (caminhos relativos saindo da pasta /pages) -->
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/pages/noticia-interna.css">
+</head>
+<body>
+
+    <!-- Cabeçalho Principal do Portal (consistente em todas as páginas) -->
+    <header id="main-header">
+        <!-- Barra superior com informações de utilidade pública -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="utility-info">
+                    <!-- Widgets preenchidos dinamicamente pelo api.js -->
+                    <span id="weather-widget">Carregando clima...</span>
+                    <span id="river-level-widget">Rio Negro: Carregando...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de Navegação -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logotipo com link de retorno à página inicial -->
+                    <a href="../index.html" class="logo">
+                        <h1>Portal <span>Manauara</span></h1>
+                    </a>
+                    
+                    <!-- Menu de navegação por editorias -->
+                    <ul class="nav-menu">
+                        <li><a href="categoria.html">Cotidiano</a></li>
+                        <li><a href="#">Política</a></li>
+                        <li><a href="#">Guia Manaus</a></li>
+                        <li><a href="#">Cultura</a></li>
+                        <li><a href="#">Turismo</a></li>
+                    </ul>
+
+                    <!-- Botão de ação à direita -->
+                    <div class="nav-actions">
+                        <a href="https://wa.me/5592999999999" target="_blank" class="btn btn-accent btn-sm">Repórter Manauara</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal: área onde a notícia será injetada dinamicamente -->
+    <main class="container">
+        <!-- O JavaScript (noticia.js) buscará o HTML da notícia e inserirá aqui -->
+        <article class="article-header" id="noticia-content">
+            <div class="loading">Carregando notícia...</div>
+        </article>
+    </main>
+
+    <!-- Rodapé da página interna -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Portal Manauara. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/noticia.js"></script>
+</body>
+</html>

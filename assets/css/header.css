@@ -1,0 +1,266 @@
+/* ============================================= */
+/* ESTILOS DO CABEÇALHO (HEADER)                 */
+/* Inclui barra superior, navegação principal,   */
+/* busca, menu mobile e ícones sociais           */
+/* ============================================= */
+
+/* Container do cabeçalho completo */
+#main-header {
+    /* Faz o cabeçalho ocupar toda a largura da tela */
+    width: 100%;
+    /* Fundo branco para o cabeçalho */
+    background-color: var(--white);
+    /* Sombra sutil na parte inferior para criar separação visual */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Barra superior escura com widgets de clima e rio */
+.top-bar {
+    /* Fundo cinza escuro para contrastar com o restante */
+    background-color: var(--charcoal);
+    /* Texto branco para legibilidade sobre fundo escuro */
+    color: var(--white);
+    /* Espaçamento vertical mínimo */
+    padding: 5px 0;
+    /* Fonte menor pois são informações complementares */
+    font-size: 0.85rem;
+}
+
+/* Alinha os widgets de utilidade (clima e rio) lado a lado */
+.utility-info {
+    /* Exibe os itens em linha horizontal */
+    display: flex;
+    /* Espaço de 20px entre cada widget */
+    gap: 20px;
+}
+
+/* Container da barra de navegação com logo, menu e ações */
+.navbar {
+    /* Espaçamento vertical para dar respiro ao conteúdo */
+    padding: 1rem 0;
+}
+
+/* Organiza os três grupos do cabeçalho (logo, menu, ações) */
+.nav-content {
+    /* Distribui os elementos com espaço máximo entre eles */
+    display: flex;
+    justify-content: space-between;
+    /* Alinha verticalmente no centro */
+    align-items: center;
+}
+
+/* Estilização do logotipo textual do portal */
+.logo h1 {
+    /* Cor verde institucional para "Portal" */
+    color: var(--verde-manaus);
+    /* Tamanho equilibrado para não dominar o cabeçalho */
+    font-size: 1.5rem;
+    /* Letras maiúsculas para maior peso visual */
+    text-transform: uppercase;
+}
+
+/* Destaque na palavra "Manauara" do logotipo */
+.logo span {
+    /* Laranja para criar contraste e identidade */
+    color: var(--laranja-sunset);
+}
+
+/* Lista horizontal de links do menu principal */
+.nav-menu {
+    /* Exibe os itens em linha */
+    display: flex;
+    /* Espaço de 20px entre cada item do menu */
+    gap: 20px;
+}
+
+/* Estilo de cada link individual do menu */
+.nav-menu a {
+    /* Texto em seminegrito para destaque */
+    font-weight: 600;
+    /* Cor cinza escuro padrão */
+    color: var(--charcoal);
+    /* Transição suave na mudança de cor ao hover */
+    transition: color 0.3s;
+}
+
+/* Muda a cor do link ao passar o mouse */
+.nav-menu a:hover {
+    /* Verde institucional para manter a identidade */
+    color: var(--verde-manaus);
+}
+
+/* Agrupa as ações do lado direito (busca, botão, hambúrguer) */
+.nav-actions {
+    /* Alinha os elementos em linha */
+    display: flex;
+    /* Centraliza verticalmente */
+    align-items: center;
+    /* Espaço entre os elementos */
+    gap: 15px;
+}
+
+/* Container do campo de busca com formato de pílula */
+.search-container {
+    /* Alinha o input e o botão de lupa em linha */
+    display: flex;
+    align-items: center;
+    /* Fundo cinza bem claro */
+    background: #f1f5f9;
+    /* Bordas totalmente arredondadas (formato pílula) */
+    border-radius: 20px;
+    /* Espaçamento interno */
+    padding: 5px 15px;
+    /* Borda fina para definição visual */
+    border: 1px solid #e2e8f0;
+}
+
+/* Campo de texto dentro da busca */
+.search-container input {
+    /* Fundo transparente para usar o do container */
+    background: transparent;
+    /* Remove a borda padrão do input */
+    border: none;
+    /* Cor do texto digitado */
+    color: var(--charcoal);
+    /* Espaçamento interno do texto */
+    padding: 5px;
+    /* Remove o contorno azul ao clicar no campo */
+    outline: none;
+    /* Largura fixa do campo de busca */
+    width: 120px;
+    /* Tamanho da fonte */
+    font-size: 0.9rem;
+}
+
+/* Placeholder do campo de busca com cor mais suave */
+.search-container input::placeholder {
+    color: var(--gray-medium);
+}
+
+/* Botão da lupa dentro do campo de busca */
+.search-container button {
+    /* Remove estilos padrão */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Container para ícones de redes sociais */
+.social-links {
+    /* Exibe os ícones em linha */
+    display: flex;
+    /* Espaço entre cada ícone */
+    gap: 10px;
+    /* Margem superior para separar de elementos acima */
+    margin-top: 10px;
+}
+
+/* Ícones circulares individuais das redes sociais */
+.social-icon {
+    /* Centraliza o conteúdo dentro do círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Dimensões iguais para formar um quadrado perfeito */
+    width: 32px;
+    height: 32px;
+    /* Fundo verde institucional */
+    background: var(--verde-manaus);
+    /* Texto branco forçado independente de herança */
+    color: white !important;
+    /* Transforma o quadrado em círculo */
+    border-radius: 50%;
+    /* Remove sublinhado de link */
+    text-decoration: none;
+    /* Fonte pequena para as siglas (IG, FB, etc.) */
+    font-size: 0.7rem;
+    font-weight: bold;
+    /* Transições suaves para efeitos de hover */
+    transition: transform 0.3s, background 0.3s;
+}
+
+/* Efeito ao passar o mouse nos ícones sociais */
+.social-icon:hover {
+    /* Muda para laranja ao interagir */
+    background: var(--laranja-sunset);
+    /* Eleva o ícone levemente para efeito 3D */
+    transform: translateY(-3px);
+}
+
+/* Em tablets (abaixo de 992px), esconde a busca para não apertar o layout */
+@media (max-width: 992px) {
+    .search-container {
+        display: none;
+    }
+}
+
+/* Botão hambúrguer para menu em dispositivos móveis */
+.mobile-toggle {
+    /* Escondido por padrão em desktop */
+    display: none;
+    /* As 3 barrinhas ficam empilhadas verticalmente */
+    flex-direction: column;
+    /* Espaço entre cada barrinha */
+    gap: 5px;
+    /* Remove estilos padrão */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Cada barrinha do ícone hambúrguer */
+.mobile-toggle span {
+    /* Largura da barrinha */
+    width: 25px;
+    /* Espessura da barrinha */
+    height: 3px;
+    /* Cor verde institucional */
+    background-color: var(--verde-manaus);
+    /* Cantos levemente arredondados */
+    border-radius: 2px;
+}
+
+/* Responsividade para celulares (abaixo de 768px) */
+@media (max-width: 768px) {
+    /* Transforma o menu horizontal em dropdown vertical */
+    .nav-menu {
+        /* Escondido inicialmente no mobile */
+        display: none;
+        /* Posicionado abaixo do cabeçalho, sobrepondo o conteúdo */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        /* Ocupa toda a largura da tela */
+        width: 100%;
+        /* Fundo verde para o menu mobile */
+        background-color: var(--verde-manaus);
+        /* Links empilhados verticalmente */
+        flex-direction: column;
+        /* Preenchimento interno */
+        padding: 20px;
+        /* Texto centralizado */
+        text-align: center;
+        /* Garante que fique acima de outros elementos */
+        z-index: 1000;
+    }
+
+    /* Classe adicionada via JavaScript para exibir o menu */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    /* Texto branco nos links pois o fundo agora é verde */
+    .nav-menu a {
+        color: var(--white);
+    }
+
+    /* Exibe o botão hambúrguer apenas em celulares */
+    .mobile-toggle {
+        display: flex;
+    }
+
+    /* Centraliza os widgets na barra superior em telas pequenas */
+    .utility-info {
+        justify-content: center;
+    }
+}

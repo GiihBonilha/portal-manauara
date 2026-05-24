@@ -1,0 +1,56 @@
+/* ============================================= */
+/* RESET CSS - NORMALIZAÇÃO DE ESTILOS           */
+/* Remove estilos padrão dos navegadores para    */
+/* garantir aparência consistente em todos eles   */
+/* ============================================= */
+
+/* Aplica regras universais a todos os elementos HTML */
+* {
+    /* Remove margens externas que navegadores adicionam por padrão */
+    margin: 0;
+    /* Remove preenchimentos internos padrão */
+    padding: 0;
+    /* Inclui bordas e paddings no cálculo da largura total do elemento */
+    box-sizing: border-box;
+}
+
+/* Otimizações de renderização de fonte no corpo da página */
+body {
+    /* Suaviza as fontes em navegadores WebKit como Chrome e Safari */
+    -webkit-font-smoothing: antialiased;
+    /* Suaviza as fontes no Firefox para sistemas macOS */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Garante que imagens sejam responsivas e não ultrapassem o container pai */
+img {
+    /* Limita a largura máxima a 100% do container */
+    max-width: 100%;
+    /* Remove o espaço vazio que aparece abaixo de imagens inline */
+    display: block;
+}
+
+/* Remove os marcadores (bolinhas) padrão de listas não ordenadas */
+ul {
+    list-style: none;
+}
+
+/* Normaliza a aparência dos links em todo o site */
+a {
+    /* Remove o sublinhado padrão dos hyperlinks */
+    text-decoration: none;
+    /* Herda a cor do elemento pai ao invés do azul padrão */
+    color: inherit;
+}
+
+/* Normaliza a aparência dos botões em todo o site */
+button {
+    /* Exibe o cursor de mão ao passar sobre o botão */
+    cursor: pointer;
+    /* Remove a borda padrão do sistema operacional */
+    border: none;
+    /* Remove o fundo cinza padrão do sistema */
+    background: none;
+    /* Usa a mesma família de fontes do restante do site */
+    font-family: inherit;
+}

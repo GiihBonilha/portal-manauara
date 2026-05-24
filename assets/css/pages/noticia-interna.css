@@ -1,0 +1,117 @@
+/* ============================================= */
+/* ESTILOS DA PÁGINA DE NOTÍCIA INTERNA          */
+/* Layout de leitura para reportagens com        */
+/* cabeçalho, imagem hero e corpo do texto       */
+/* ============================================= */
+
+/* Cabeçalho do artigo com título e metadados */
+.article-header {
+    /* Margem no topo para separar do menu */
+    margin-top: var(--spacing-xl);
+    /* Limita a largura para leitura confortável */
+    max-width: 800px;
+    /* Centraliza o bloco */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Informações do artigo: editoria e data */
+.article-meta {
+    color: var(--gray-medium);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Nome da categoria do artigo */
+.article-category {
+    color: var(--laranja-sunset);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+/* Título principal da reportagem */
+.article-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Resumo ou linha fina da notícia */
+.article-excerpt {
+    font-size: 1.25rem;
+    color: var(--charcoal);
+    /* Leve transparência para suavizar */
+    opacity: 0.8;
+    margin-bottom: var(--spacing-lg);
+    /* Itálico para diferenciar do corpo */
+    font-style: italic;
+}
+
+/* Imagem principal da notícia */
+.article-hero-img {
+    width: 100%;
+    height: 450px;
+    background-color: var(--gray-light);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-lg);
+    object-fit: cover;
+}
+
+/* Container responsivo para vídeos do YouTube (proporção 16:9) */
+.video-container {
+    position: relative;
+    /* Técnica de padding para manter proporção 16:9 */
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Iframe do vídeo preenchendo o container responsivo */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Corpo do texto da reportagem */
+.article-body {
+    /* Largura ideal para leitura (60-80 caracteres por linha) */
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    /* Altura de linha generosa para conforto visual */
+    line-height: 1.8;
+}
+
+/* Parágrafos do texto */
+.article-body p {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Subtítulos dentro do corpo da notícia */
+.article-body h2 {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--verde-manaus);
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+    /* Reduz o título para caber em telas menores */
+    .article-title {
+        font-size: 1.8rem;
+    }
+
+    /* Reduz a altura da imagem hero */
+    .article-hero-img {
+        height: 250px;
+    }
+}

@@ -1,0 +1,120 @@
+/* ============================================= */
+/* ESTILOS DO RODAPÉ (FOOTER)                    */
+/* Inclui colunas informativas, links, redes     */
+/* sociais e barra de copyright                  */
+/* ============================================= */
+
+/* Container principal do rodapé */
+#main-footer {
+    /* Fundo escuro para contraste com o conteúdo claro do site */
+    background-color: var(--charcoal);
+    /* Texto branco para legibilidade */
+    color: var(--white);
+    /* Espaçamento vertical generoso (48px) */
+    padding: var(--spacing-xl) 0;
+    /* Separa o rodapé da última seção do conteúdo */
+    margin-top: var(--spacing-xl);
+}
+
+/* Sistema de 4 colunas usando CSS Grid */
+.footer-grid {
+    display: grid;
+    /* Quatro colunas de larguras iguais */
+    grid-template-columns: repeat(4, 1fr);
+    /* Espaçamento entre as colunas */
+    gap: var(--spacing-lg);
+    /* Margem abaixo para separar do copyright */
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Títulos de cada coluna do rodapé */
+.footer-column h3 {
+    /* Cor laranja para destaque sobre fundo escuro */
+    color: var(--laranja-sunset);
+    /* Margem abaixo do título */
+    margin-bottom: var(--spacing-md);
+    /* Tamanho da fonte */
+    font-size: 1.1rem;
+    /* Texto em maiúsculas para manter o padrão visual */
+    text-transform: uppercase;
+}
+
+/* Itens das listas de links no rodapé */
+.footer-links li {
+    /* Pequeno espaço entre cada link */
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Links no rodapé em cor discreta */
+.footer-links a {
+    /* Cinza médio para links secundários */
+    color: var(--gray-medium);
+    /* Transição suave de cor */
+    transition: color 0.2s;
+}
+
+/* Links ficam brancos ao passar o mouse */
+.footer-links a:hover {
+    color: var(--white);
+}
+
+/* Barra inferior com copyright e créditos */
+.footer-bottom {
+    /* Linha divisória fina acima */
+    border-top: 1px solid #334155;
+    /* Espaçamento acima do texto */
+    padding-top: var(--spacing-md);
+    /* Texto centralizado */
+    text-align: center;
+    /* Cor discreta para informação secundária */
+    color: var(--gray-medium);
+    /* Fonte menor */
+    font-size: 0.9rem;
+}
+
+/* Container de ícones sociais no rodapé */
+.social-links {
+    display: flex;
+    /* Espaço entre os ícones */
+    gap: 15px;
+    /* Margem acima para separar do texto */
+    margin-top: var(--spacing-sm);
+}
+
+/* Ícones circulares de redes sociais */
+.social-icon {
+    /* Dimensões iguais para criar círculo */
+    width: 32px;
+    height: 32px;
+    /* Fundo verde institucional */
+    background-color: var(--verde-manaus);
+    /* Centraliza o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Formato circular */
+    border-radius: 50%;
+    /* Transição suave de cor */
+    transition: background 0.2s;
+}
+
+/* Ícone muda para laranja ao hover */
+.social-icon:hover {
+    background-color: var(--laranja-sunset);
+}
+
+/* Responsividade para tablets (abaixo de 768px) */
+@media (max-width: 768px) {
+    .footer-grid {
+        /* Reduz de 4 para 2 colunas */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Responsividade para celulares pequenos (abaixo de 480px) */
+@media (max-width: 480px) {
+    .footer-grid {
+        /* Uma única coluna vertical */
+        grid-template-columns: 1fr;
+    }
+}
