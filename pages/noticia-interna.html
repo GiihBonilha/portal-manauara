@@ -1,74 +1,80 @@
-<!DOCTYPE html>
-<!-- Página template para exibição dinâmica de notícias internas -->
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portal Manauara - Carregando Notícia...</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="../assets/css/variables.css">
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/global.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/pages/noticia-interna.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="../assets/css/variables.css" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/header.css" />
+    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="../assets/css/pages/noticia-interna.css" />
+  </head>
+  <body>
     <header id="main-header">
-        <div class="top-bar">
-            <div class="container">
-                <div class="utility-info">
-                    <span id="weather-widget">Carregando clima...</span>
-                    <span id="river-level-widget">Rio Negro: Carregando...</span>
-                </div>
-            </div>
+      <div class="top-bar">
+        <div class="container">
+          <div class="utility-info">
+            <span id="weather-widget">Carregando clima...</span>
+            <span id="river-level-widget">Rio Negro: Carregando...</span>
+          </div>
         </div>
+      </div>
 
-        <nav class="navbar">
-            <div class="container">
-                <div class="nav-content">
-                    <a href="../index.html" class="logo">
-                        <h1>Portal <span>Manauara</span></h1>
-                    </a>
+      <nav class="navbar">
+        <div class="container">
+          <div class="nav-content">
+            <a href="../index.html" class="logo">
+              <h1>Portal <span>Manauara</span></h1>
+            </a>
 
-                    <ul class="nav-menu">
-                        <li><a href="categoria.html">Cotidiano</a></li>
-                        <li><a href="politica.html">Política</a></li>
-                        <li><a href="guia-manaus.html">Guia Manaus</a></li>
-                        <li><a href="cultura.html">Cultura</a></li>
-                        <li><a href="turismo.html">Turismo</a></li>
-                    </ul>
+            <ul class="nav-menu">
+              <li><a href="categoria.html">Cotidiano</a></li>
+              <li><a href="politica.html">Política</a></li>
+              <li><a href="guia-manaus.html">Guia Manaus</a></li>
+              <li><a href="cultura.html">Cultura</a></li>
+              <li><a href="turismo.html">Turismo</a></li>
+            </ul>
 
-                    <div class="nav-actions">
-                        <a href="https://wa.me/5592999999999" target="_blank" class="btn btn-accent btn-sm">Repórter Manauara</a>
-                    </div>
-                </div>
+            <div class="nav-actions">
+              <a
+                href="https://wa.me/5592999999999"
+                target="_blank"
+                class="btn btn-accent btn-sm"
+                >Repórter Manauara</a
+              >
             </div>
-        </nav>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main class="container">
-        <article class="article-header" id="noticia-content">
-            <div class="loading">Carregando notícia...</div>
-        </article>
+      <article class="article-header" id="noticia-content">
+        <div class="loading">Carregando notícia...</div>
+      </article>
     </main>
 
     <footer id="main-footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2024 Portal Manauara. Todos os direitos reservados.</p>
-            </div>
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2024 Portal Manauara. Todos os direitos reservados.</p>
         </div>
+      </div>
     </footer>
 
     <script src="../assets/js/api.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/menu.js"></script>
     <script src="../assets/js/noticia.js"></script>
-</body>
+  </body>
 </html>

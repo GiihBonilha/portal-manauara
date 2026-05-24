@@ -1,77 +1,58 @@
-/* ============================================= */
-/* ESTILOS DA PÁGINA QUEM SOMOS                  */
-/* Página institucional com história, missão,    */
-/* visão e valores do portal                     */
-/* ============================================= */
+/* quem somos - pagina institucional */
 
-/* Container centralizado para conteúdo institucional */
 .about-container {
-    /* Largura limitada para leitura confortável */
     max-width: 800px;
-    /* Centraliza com margem vertical generosa */
     margin: var(--spacing-xl) auto;
-    /* Altura de linha para legibilidade */
     line-height: 1.8;
 }
 
-/* Cabeçalho centralizado da página */
 .about-header {
     text-align: center;
     margin-bottom: var(--spacing-lg);
 }
 
-/* Título "Quem Somos" */
 .about-header h1 {
     font-size: 2.5rem;
     color: var(--verde-manaus);
     margin-bottom: var(--spacing-sm);
 }
 
-/* Subtítulos dentro do conteúdo */
 .about-content h2 {
-    /* Laranja para separação visual de tópicos */
     color: var(--laranja-sunset);
     margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-sm);
 }
 
-/* Parágrafos do texto institucional */
 .about-content p {
     margin-bottom: var(--spacing-md);
     font-size: 1.1rem;
 }
 
-/* Grid de Missão, Visão e Valores */
+/* missao, visao e valores */
 .mission-vision-values {
     display: grid;
-    /* Colunas automáticas de no mínimo 250px */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-md);
     margin-top: var(--spacing-xl);
 }
 
-/* Card individual para Missão, Visão ou Valores */
 .mvh-card {
     background: #f8fafc;
     padding: var(--spacing-md);
     border-radius: 8px;
-    /* Barra verde no topo para identificação visual */
     border-top: 4px solid var(--verde-manaus);
 }
 
-/* Título dentro do card MVV */
 .mvh-card h3 {
     color: var(--verde-manaus);
     margin-bottom: var(--spacing-xs);
 }
 
-/* Seção de equipe (opcional) */
 .team-section {
     margin-top: var(--spacing-xl);
     text-align: center;
 }
 
-/* Imagem hero da página institucional */
 .hero-about-img {
     width: 100%;
     height: 300px;

@@ -1,90 +1,57 @@
-/* ============================================= */
-/* ESTILOS DA PÁGINA DE CATEGORIA                */
-/* Listagem de notícias por editoria com         */
-/* destaque principal e sidebar lateral          */
-/* ============================================= */
+/* categoria - listagem de noticias por editoria */
 
-/* Cabeçalho da página indicando a editoria atual */
 .category-header {
-    /* Espaço grande no topo */
     margin-top: var(--spacing-xl);
-    /* Espaço abaixo antes do conteúdo */
     margin-bottom: var(--spacing-lg);
-    /* Linha verde grossa na base para destaque */
     border-bottom: 3px solid var(--verde-manaus);
-    /* Espaço interno antes da linha */
     padding-bottom: var(--spacing-sm);
 }
 
-/* Título H1 da categoria */
 .category-header h1 {
-    /* Fonte grande e impactante */
     font-size: 2.5rem;
-    /* Cor verde institucional */
     color: var(--verde-manaus);
-    /* Texto em maiúsculas */
     text-transform: uppercase;
 }
 
-/* Grid principal da página: conteúdo (3/4) + sidebar (1/4) */
 .category-grid {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    /* Espaço entre conteúdo e sidebar */
     gap: var(--spacing-xl);
 }
 
-/* Artigo de maior destaque na categoria */
+/* destaque */
 .featured-article-cat {
-    /* Margem grande abaixo */
     margin-bottom: var(--spacing-xl);
-    /* Layout em duas colunas: imagem e texto */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Espaço entre imagem e informações */
     gap: var(--spacing-md);
-    /* Fundo cinza claro para destacar */
     background: var(--gray-light);
-    /* Espaçamento interno */
     padding: var(--spacing-md);
-    /* Cantos arredondados */
     border-radius: 8px;
 }
 
-/* Imagem do artigo de destaque */
 .featured-article-cat img {
-    /* Ocupa toda a largura da coluna */
     width: 100%;
-    /* Altura fixa para padrão visual */
     height: 300px;
-    /* Preenche sem distorcer */
     object-fit: cover;
-    /* Cantos arredondados */
     border-radius: 4px;
 }
 
-/* Lista vertical de notícias menores */
+/* lista de noticias */
 .article-list-cat {
     display: grid;
     grid-template-columns: 1fr;
-    /* Espaço grande entre cada notícia */
     gap: var(--spacing-lg);
 }
 
-/* Item individual da lista de notícias */
 .article-item-cat {
-    /* Imagem pequena (200px) + texto lado a lado */
     display: grid;
     grid-template-columns: 200px 1fr;
-    /* Espaço entre imagem e texto */
     gap: var(--spacing-md);
-    /* Espaço na base */
     padding-bottom: var(--spacing-md);
-    /* Linha divisória entre notícias */
     border-bottom: 1px solid var(--gray-light);
 }
 
-/* Imagem menor das notícias da lista */
 .article-item-cat img {
     width: 100%;
     height: 140px;
@@ -92,26 +59,21 @@
     border-radius: 4px;
 }
 
-/* Título das seções da sidebar */
+/* sidebar */
 .sidebar-title {
     font-size: 1.2rem;
-    /* Cor laranja para contraste */
     color: var(--laranja-sunset);
     margin-bottom: var(--spacing-md);
     text-transform: uppercase;
-    /* Linha laranja na base */
     border-bottom: 2px solid var(--laranja-sunset);
     padding-bottom: 5px;
 }
 
-/* Responsividade para celulares */
 @media (max-width: 768px) {
-    /* Todas as colunas viram coluna única */
     .category-grid, .featured-article-cat, .article-item-cat {
         grid-template-columns: 1fr;
     }
 
-    /* Reduz a altura das imagens em telas pequenas */
     .featured-article-cat img, .article-item-cat img {
         height: 200px;
     }

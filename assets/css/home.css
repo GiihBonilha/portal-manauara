@@ -1,471 +1,288 @@
-/* ============================================= */
-/* ESTILOS DA PÁGINA INICIAL (HOME)              */
-/* Inclui hero, agenda cultural, cards de        */
-/* notícias, newsletter e seções divididas       */
-/* ============================================= */
+/* home.css - estilos da pagina inicial */
 
-/* --- SEÇÃO HERO (Destaque Principal) --- */
-
-/* Grid que divide a área hero em manchete principal e plantão lateral */
+/* hero */
 .hero-grid {
-  /* Define o layout como grid */
-  display: grid;
-  /* Manchete ocupa 2/3 e plantão ocupa 1/3 da largura */
-  grid-template-columns: 2fr 1fr;
-  /* Espaço entre as colunas */
-  gap: var(--spacing-lg);
-  /* Margem no topo para separar do cabeçalho */
-  margin-top: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
 }
 
-/* Área da manchete principal com imagem de fundo */
 .main-feature {
-  /* Necessário para posicionamento de elementos internos */
-  position: relative;
-  /* Altura fixa para impacto visual */
-  height: 450px;
-  /* Degradê escuro sobre a imagem para legibilidade do texto branco */
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
-    url("../img/Eleicoes_2026_1200_X_600.png");
-  /* Imagem cobre todo o espaço sem distorção */
-  background-size: cover;
-  /* Centraliza a imagem de fundo */
-  background-position: center;
-  /* Cantos arredondados */
-  border-radius: 8px;
-  /* Organiza o conteúdo em coluna (vertical) */
-  display: flex;
-  flex-direction: column;
-  /* Empurra o texto para a parte inferior da imagem */
-  justify-content: flex-end;
-  /* Espaçamento interno para o texto não colar nas bordas */
-  padding: var(--spacing-lg);
-  /* Texto branco sobre a imagem escurecida */
-  color: var(--white);
-}
-
-/* Etiqueta de categoria sobre a imagem de destaque */
-.main-feature .category {
-  /* Fundo laranja vibrante */
-  background-color: var(--laranja-sunset);
-  /* Espaçamento interno da etiqueta */
-  padding: 4px 12px;
-  /* Fonte pequena e em negrito */
-  font-size: 0.8rem;
-  font-weight: 700;
-  /* Texto em maiúsculas */
-  text-transform: uppercase;
-  /* Largura se ajusta ao conteúdo do texto */
-  width: fit-content;
-  /* Espaço abaixo antes do título */
-  margin-bottom: var(--spacing-sm);
-  /* Cantos levemente arredondados */
-  border-radius: 4px;
-}
-
-/* Título da manchete principal */
-.main-feature h2 {
-  /* Fonte grande para máximo destaque */
-  font-size: 2.5rem;
-  /* Espaçamento entre linhas para títulos longos */
-  line-height: 1.2;
-  /* Margem abaixo para separar do subtítulo */
-  margin-bottom: var(--spacing-sm);
-}
-
-/* --- BARRA LATERAL DE PLANTÃO --- */
-
-/* Container da barra lateral com notícias rápidas */
-.sidebar-news {
-  /* Fundo cinza claro para diferenciar do conteúdo principal */
-  background-color: var(--gray-light);
-  /* Espaçamento interno */
-  padding: var(--spacing-md);
-  /* Cantos arredondados */
-  border-radius: 8px;
-}
-
-/* Título "Plantão" na barra lateral */
-.sidebar-news h3 {
-  /* Linha verde na base do título para destaque */
-  border-bottom: 2px solid var(--verde-manaus);
-  /* Espaço entre texto e linha */
-  padding-bottom: var(--spacing-xs);
-  /* Espaço após o título antes da lista */
-  margin-bottom: var(--spacing-md);
-  /* Texto em maiúsculas com cor verde */
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  color: var(--verde-manaus);
-}
-
-/* Itens individuais da lista de notícias do plantão */
-.news-list li {
-  /* Espaçamento na base de cada item */
-  padding-bottom: var(--spacing-sm);
-  margin-bottom: var(--spacing-sm);
-  /* Linha separadora discreta entre notícias */
-  border-bottom: 1px solid var(--gray-medium);
-}
-
-/* Remove a linha do último item para não sobrar espaço */
-.news-list li:last-child {
-  border-bottom: none;
-}
-
-/* Links das notícias do plantão */
-.news-list a {
-  /* Texto em seminegrito */
-  font-weight: 600;
-  /* Transição suave de cor */
-  transition: color 0.2s;
-}
-
-/* Muda a cor do link ao passar o mouse */
-.news-list a:hover {
-  color: var(--laranja-sunset);
-}
-
-/* --- SEÇÕES DE NOTÍCIAS (Cotidiano, Política, etc.) --- */
-
-/* Estilo geral de uma seção de editoria */
-.news-section {
-  /* Margem grande no topo para separar as seções */
-  margin-top: var(--spacing-xl);
-}
-
-/* Título estilizado das seções com barra laranja à esquerda */
-.section-title {
-  /* Tamanho do título */
-  font-size: 1.5rem;
-  /* Cor verde institucional */
-  color: var(--verde-manaus);
-  /* Barra laranja grossa à esquerda como identidade visual */
-  border-left: 5px solid var(--laranja-sunset);
-  /* Espaço entre a barra e o texto */
-  padding-left: var(--spacing-sm);
-  /* Espaço abaixo antes dos cards */
-  margin-bottom: var(--spacing-lg);
-  /* Texto em maiúsculas */
-  text-transform: uppercase;
-}
-
-/* Grid que organiza os cards de notícias em 3 colunas */
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* Espaço entre cada card */
-  gap: var(--spacing-md);
-}
-
-/* Card individual de notícia */
-.news-card {
-  /* Fundo branco */
-  background-color: var(--white);
-  /* Borda fina para definição */
-  border: 1px solid var(--gray-light);
-  /* Cantos arredondados */
-  border-radius: 4px;
-  /* Impede que o conteúdo ultrapasse os cantos arredondados */
-  overflow: hidden;
-  /* Transição suave para o efeito de elevação */
-  transition: transform 0.2s;
-}
-
-/* Efeito de elevação ao passar o mouse sobre o card */
-.news-card:hover {
-  /* Card sobe 5px */
-  transform: translateY(-5px);
-  /* Sombra para criar profundidade */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Área da imagem dentro do card */
-.card-img {
-  /* Altura fixa para manter padrão visual */
-  height: 180px;
-  /* Cor de fundo enquanto a imagem carrega */
-  background-color: var(--gray-medium);
-  /* Esconde partes da imagem que excedem os limites */
-  overflow: hidden;
-}
-
-/* Imagem dentro do card responsiva */
-.card-img img {
-  /* Preenche toda a área disponível */
-  width: 100%;
-  height: 100%;
-  /* Corta a imagem mantendo proporções sem distorção */
-  object-fit: cover;
-  /* Transição suave para o efeito de zoom */
-  transition: transform 0.3s ease;
-}
-
-/* Zoom suave na imagem ao passar o mouse no card */
-.news-card:hover .card-img img {
-  transform: scale(1.05);
-}
-
-/* Área de texto abaixo da imagem no card */
-.card-content {
-  /* Espaçamento interno para o texto respirar */
-  padding: var(--spacing-sm);
-}
-
-/* Etiqueta de categoria dentro do card (ex: "Bairros", "Segurança") */
-.card-category {
-  /* Fonte pequena e em negrito */
-  font-size: 0.7rem;
-  font-weight: 700;
-  /* Cor laranja para destaque */
-  color: var(--laranja-sunset);
-  /* Texto em maiúsculas */
-  text-transform: uppercase;
-}
-
-/* Título da notícia dentro do card */
-.card-content h3 {
-  /* Tamanho intermediário */
-  font-size: 1.1rem;
-  /* Margens verticais mínimas */
-  margin: 5px 0;
-  /* Espaçamento entre linhas para títulos longos */
-  line-height: 1.3;
-}
-
-/* --- NEWSLETTER "CAFÉ COM TUCUMÃ" --- */
-
-/* Faixa de inscrição na newsletter */
-.newsletter-banner {
-  /* Fundo laranja vibrante */
-  background-color: var(--laranja-sunset);
-  /* Texto branco para alto contraste */
-  color: var(--white);
-  /* Margem no topo para separar de outras seções */
-  margin-top: var(--spacing-xl);
-  /* Espaçamento interno generoso */
-  padding: var(--spacing-xl);
-  /* Cantos arredondados */
-  border-radius: 8px;
-  /* Texto centralizado */
-  text-align: center;
-}
-
-/* Formulário da newsletter (input + botão) */
-.newsletter-form {
-  /* Margem acima para afastar do título */
-  margin-top: var(--spacing-md);
-  /* Alinha input e botão lado a lado */
-  display: flex;
-  justify-content: center;
-  /* Espaço entre os elementos */
-  gap: 10px;
-}
-
-/* Campo de e-mail do formulário */
-.newsletter-form input {
-  /* Espaçamento interno do texto */
-  padding: 0.75rem;
-  /* Cantos arredondados */
-  border-radius: 4px;
-  /* Remove a borda padrão */
-  border: none;
-  /* Largura fixa de 300px */
-  width: 300px;
-}
-
-/* --- LAYOUT DIVIDIDO (Política + Guia Manaus) --- */
-
-/* Container que divide a tela em duas metades iguais */
-.horizontal-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* Espaço entre as colunas */
-  gap: var(--spacing-xl);
-  /* Margem no topo */
-  margin-top: var(--spacing-xl);
-}
-
-/* Lista de notícias em formato minimalista (apenas texto) */
-.list-news-minimal li {
-  /* Espaço abaixo de cada item */
-  margin-bottom: var(--spacing-sm);
-  /* Linha divisória sutil na base */
-  border-bottom: 1px solid var(--gray-light);
-  /* Espaço interno antes da linha */
-  padding-bottom: var(--spacing-xs);
-}
-
-/* Links nas listas minimalistas em seminegrito */
-.list-news-minimal a {
-  font-weight: 600;
-}
-
-/* --- AGENDA CULTURAL INTERATIVA --- */
-
-/* Container dos botões de filtro da agenda */
-.agenda-filters {
-  /* Botões em linha */
-  display: flex;
-  /* Espaço entre os botões */
-  gap: 10px;
-  /* Margem abaixo antes dos cards de evento */
-  margin-bottom: 20px;
-  /* Permite quebra de linha em telas pequenas */
-  flex-wrap: wrap;
-}
-
-/* Estilo individual dos botões de filtro (formato pílula) */
-.filter-btn {
-  /* Espaçamento interno */
-  padding: 8px 16px;
-  /* Borda verde fina */
-  border: 1px solid var(--verde-manaus);
-  /* Fundo transparente por padrão */
-  background: transparent;
-  /* Texto verde */
-  color: var(--verde-manaus);
-  /* Formato arredondado (pílula) */
-  border-radius: 20px;
-  /* Cursor de mão */
-  cursor: pointer;
-  /* Texto em seminegrito */
-  font-weight: 600;
-  /* Transição suave para todas as propriedades */
-  transition: all 0.3s;
-}
-
-/* Estilo do botão ativo ou ao passar o mouse */
-.filter-btn.active,
-.filter-btn:hover {
-  /* Preenche o fundo com verde */
-  background: var(--verde-manaus);
-  /* Texto branco */
-  color: white;
-}
-
-/* Grid dos cards de evento da agenda cultural */
-.agenda-grid {
-  display: grid;
-  /* Colunas dinâmicas que se ajustam ao espaço (mínimo 280px) */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  /* Espaço entre os cards */
-  gap: 20px;
-}
-
-/* Card individual de evento */
-.agenda-card {
-  /* Data e informações lado a lado */
-  display: flex;
-  /* Fundo azulado bem claro */
-  background: #f8fafc;
-  /* Cantos arredondados */
-  border-radius: 8px;
-  /* Impede conteúdo vazando dos cantos */
-  overflow: hidden;
-  /* Borda fina para definição */
-  border: 1px solid #e2e8f0;
-}
-
-/* Bloco com dia e mês à esquerda do card */
-.agenda-date {
-  /* Fundo verde institucional */
-  background: var(--verde-manaus);
-  /* Texto branco */
-  color: white;
-  /* Espaçamento interno */
-  padding: 15px;
-  /* Dia e mês empilhados verticalmente */
-  display: flex;
-  flex-direction: column;
-  /* Centraliza o conteúdo no centro do bloco */
-  align-items: center;
-  justify-content: center;
-  /* Largura mínima para manter proporção */
-  min-width: 70px;
-}
-
-/* Número do dia no bloco de data */
-.agenda-date .day {
-  /* Fonte grande e em negrito */
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-/* Abreviação do mês no bloco de data */
-.agenda-date .month {
-  /* Fonte menor e em maiúsculas */
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-/* Informações textuais do evento (título, local, tipo) */
-.agenda-info {
-  /* Espaçamento interno */
-  padding: 15px;
-}
-
-/* Título do evento */
-.agenda-info h4 {
-  /* Espaço abaixo do título */
-  margin-bottom: 5px;
-  /* Tamanho da fonte */
-  font-size: 1.1rem;
-}
-
-/* Descrição ou localização do evento */
-.agenda-info p {
-  /* Fonte menor */
-  font-size: 0.85rem;
-  /* Cor cinza escuro */
-  color: var(--charcoal);
-  /* Espaço antes da etiqueta (badge) */
-  margin-bottom: 10px;
-}
-
-/* Etiquetas coloridas para identificar o tipo do evento */
-.badge {
-  /* Fonte pequena */
-  font-size: 0.7rem;
-  /* Espaçamento interno */
-  padding: 3px 8px;
-  /* Cantos arredondados */
-  border-radius: 4px;
-  /* Texto branco */
-  color: white;
-  /* Maiúsculas e negrito */
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-/* Cores específicas por categoria de evento */
-.badge.teatro {
-  background: #8b5cf6;
-} /* Roxo para Teatro */
-.badge.shows {
-  background: #ec4899;
-} /* Rosa para Shows */
-.badge.gastronomia {
-  background: #f59e0b;
-} /* Âmbar para Gastronomia */
-
-/* --- RESPONSIVIDADE MOBILE (abaixo de 768px) --- */
-@media (max-width: 768px) {
-  /* Grids de múltiplas colunas viram coluna única */
-  .hero-grid,
-  .news-grid,
-  .horizontal-split {
-    grid-template-columns: 1fr;
-  }
-
-  /* Newsletter empilha input e botão verticalmente */
-  .newsletter-form {
+    position: relative;
+    height: 450px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
+                url('../img/Eleicoes_2026_1200_X_600.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    display: flex;
     flex-direction: column;
-  }
+    justify-content: flex-end;
+    padding: var(--spacing-lg);
+    color: var(--white);
+}
 
-  /* Input da newsletter ocupa 100% da largura */
-  .newsletter-form input {
+.main-feature .category {
+    background-color: var(--laranja-sunset);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: var(--spacing-sm);
+    border-radius: 4px;
+}
+
+.main-feature h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* plantao lateral */
+.sidebar-news {
+    background-color: var(--gray-light);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+}
+
+.sidebar-news h3 {
+    border-bottom: 2px solid var(--verde-manaus);
+    padding-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: var(--verde-manaus);
+}
+
+.news-list li {
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--gray-medium);
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+.news-list a {
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.news-list a:hover {
+    color: var(--laranja-sunset);
+}
+
+/* secoes de noticias */
+.news-section {
+    margin-top: var(--spacing-xl);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--verde-manaus);
+    border-left: 5px solid var(--laranja-sunset);
+    padding-left: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+/* cards de noticia */
+.news-card {
+    background-color: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img {
+    height: 180px;
+    background-color: var(--gray-medium);
+    overflow: hidden;
+}
+
+.card-img img {
     width: 100%;
-  }
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover .card-img img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: var(--spacing-sm);
+}
+
+.card-category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--laranja-sunset);
+    text-transform: uppercase;
+}
+
+.card-content h3 {
+    font-size: 1.1rem;
+    margin: 5px 0;
+    line-height: 1.3;
+}
+
+/* newsletter */
+.newsletter-banner {
+    background-color: var(--laranja-sunset);
+    color: var(--white);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.newsletter-form {
+    margin-top: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: none;
+    width: 300px;
+}
+
+/* politica + guia lado a lado */
+.horizontal-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.list-news-minimal li {
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: var(--spacing-xs);
+}
+
+.list-news-minimal a {
+    font-weight: 600;
+}
+
+/* agenda cultural */
+.agenda-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--verde-manaus);
+    background: transparent;
+    color: var(--verde-manaus);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--verde-manaus);
+    color: white;
+}
+
+.agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.agenda-card {
+    display: flex;
+    background: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.agenda-date {
+    background: var(--verde-manaus);
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+}
+
+.agenda-date .day {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.agenda-date .month {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.agenda-info {
+    padding: 15px;
+}
+
+.agenda-info h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.agenda-info p {
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.badge.teatro { background: #8b5cf6; }
+.badge.shows { background: #ec4899; }
+.badge.gastronomia { background: #f59e0b; }
+
+/* mobile */
+@media (max-width: 768px) {
+    .hero-grid, .news-grid, .horizontal-split {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+    }
 }

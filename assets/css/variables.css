@@ -1,41 +1,23 @@
-/* ============================================= */
-/* VARIÁVEIS GLOBAIS DO PORTAL MANAUARA          */
-/* Define cores, fontes e espaçamentos usados    */
-/* em todo o projeto para manter consistência    */
-/* ============================================= */
-
+/* variaveis globais */
 :root {
-    /* --- Paleta de Cores Principais --- */
-    /* Verde institucional que representa a identidade amazônica */
     --verde-manaus: #005448;
-    /* Laranja vibrante usado em botões, alertas e chamadas para ação */
     --laranja-sunset: #EC6907;
-    /* Cinza escuro azulado, cor padrão para textos do corpo */
     --charcoal: #1E293B;
-    /* Branco puro para fundos e contrastes */
     --white: #FFFFFF;
-    /* Cinza muito claro para fundos de cards e seções alternadas */
     --gray-light: #F1F5F9;
-    /* Cinza médio para subtítulos, placeholders e ícones inativos */
     --gray-medium: #94A3B8;
 
-    /* --- Sistema de Tipografia --- */
-    /* Montserrat: fonte moderna e impactante para títulos e manchetes */
     --font-primary: 'Montserrat', sans-serif;
-    /* Open Sans: fonte com boa legibilidade para textos longos */
     --font-secondary: 'Open Sans', sans-serif;
 
-    /* --- Escala de Espaçamento Padronizada --- */
-    /* Usada para manter proporção harmônica entre elementos */
-    --spacing-xs: 0.5rem;   /* 8px  - margens internas pequenas */
-    --spacing-sm: 1rem;     /* 16px - padding padrão de elementos */
-    --spacing-md: 1.5rem;   /* 24px - espaço entre cards e parágrafos */
-    --spacing-lg: 2rem;     /* 32px - separação entre seções menores */
-    --spacing-xl: 3rem;     /* 48px - separação entre grandes blocos */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
 
-    /* --- Breakpoints para Responsividade Mobile-First --- */
-    --mobile: 480px;    /* Smartphones pequenos */
-    --tablet: 768px;    /* Tablets e telas médias */
-    --desktop: 1024px;  /* Notebooks e monitores */
-    --wide: 1200px;     /* Telas grandes e ultrawide */
+    --mobile: 480px;
+    --tablet: 768px;
+    --desktop: 1024px;
+    --wide: 1200px;
 }

@@ -1,48 +1,34 @@
-/* ============================================= */
-/* ESTILOS DA PÁGINA DE CONTATO                  */
-/* Layout dividido entre informações e           */
-/* formulário de envio de mensagem               */
-/* ============================================= */
+/* contato - formulario e info */
 
-/* Container principal da página de contato */
 .contact-container {
-    /* Limita a largura para legibilidade */
     max-width: 900px;
-    /* Centraliza e aplica margem vertical */
     margin: var(--spacing-xl) auto;
-    /* Duas colunas iguais no desktop */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Espaço entre informações e formulário */
     gap: var(--spacing-xl);
 }
 
-/* Título da página de contato */
 .contact-info h1 {
     font-size: 2.5rem;
     color: var(--verde-manaus);
     margin-bottom: var(--spacing-md);
 }
 
-/* Texto descritivo */
 .contact-info p {
     margin-bottom: var(--spacing-md);
     font-size: 1.1rem;
     line-height: 1.6;
 }
 
-/* Blocos individuais de informação (email, tel, endereço) */
 .info-item {
     margin-bottom: var(--spacing-md);
 }
 
-/* Rótulo de cada bloco de informação */
 .info-item h3 {
     color: var(--laranja-sunset);
     margin-bottom: 5px;
 }
 
-/* Caixa do formulário com fundo claro e sombra */
 .contact-form {
     background: #f8fafc;
     padding: var(--spacing-lg);
@@ -50,19 +36,16 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Cada grupo de campo (label + input) do formulário */
 .form-group {
     margin-bottom: var(--spacing-md);
 }
 
-/* Rótulo acima dos campos */
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
 }
 
-/* Campos de texto e área de mensagem */
 .form-group input, .form-group textarea {
     width: 100%;
     padding: 12px;
@@ -71,14 +54,11 @@
     font-family: inherit;
 }
 
-/* Área de mensagem com altura maior */
 .form-group textarea {
     height: 150px;
-    /* Permite redimensionar apenas na vertical */
     resize: vertical;
 }
 
-/* Botão de envio do formulário */
 .btn-submit {
     width: 100%;
     padding: 14px;
@@ -91,16 +71,10 @@
     transition: background 0.3s;
 }
 
-/* Efeito ao passar o mouse no botão */
 .btn-submit:hover {
-    /* Verde mais escuro */
     background-color: #00423a;
 }
 
-/* Responsividade para celulares */
 @media (max-width: 768px) {
-    .contact-container {
-        /* Muda para coluna única */
-        grid-template-columns: 1fr;
-    }
+    .contact-container { grid-template-columns: 1fr; }
 }

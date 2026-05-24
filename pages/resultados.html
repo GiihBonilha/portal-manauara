@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Portal Manauara</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/pages/categoria.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="utility-info">
+                    <span id="weather-widget">Carregando clima...</span>
+                    <span id="river-level-widget">Rio Negro: Carregando...</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <a href="../index.html" class="logo">
+                        <h1>Portal <span>Manauara</span></h1>
+                    </a>
+
+                    <ul class="nav-menu">
+                        <li><a href="categoria.html">Cotidiano</a></li>
+                        <li><a href="politica.html">Política</a></li>
+                        <li><a href="guia-manaus.html">Guia Manaus</a></li>
+                        <li><a href="cultura.html">Cultura</a></li>
+                        <li><a href="turismo.html">Turismo</a></li>
+                    </ul>
+
+                    <div class="nav-actions">
+                        <div class="search-container">
+                            <input type="text" id="search-input" placeholder="Buscar notícias...">
+                            <button id="search-btn">🔍</button>
+                        </div>
+                        <a href="https://wa.me/5592999999999" target="_blank" class="btn btn-accent btn-sm">Repórter Manauara</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <header class="category-header">
+            <h1 id="titulo-busca">Resultados</h1>
+        </header>
+
+        <div id="resultados-container" class="news-grid">
+            <!-- cards gerados pelo JS -->
+        </div>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Portal Manauara. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/search.js"></script>
+    <script>
+        // todas as noticias do portal
+        var noticias = [
+            { id: 'eleicoes-2026', titulo: 'Eleições 2026: A Disputa pelo Governo do Amazonas Toma Forma', desc: 'Veja quem são os principais pré-candidatos que lideram a corrida pelo Palácio Rio Negro.', cat: 'Política', img: '../assets/img/Eleicoes_2026_1200_X_600.png' },
+            { id: 'transito-constantino', titulo: 'Trânsito intenso na Constantino Nery após acidente', desc: 'Colisão entre dois veículos causa lentidão em uma das principais vias da cidade.', cat: 'Trânsito', img: '../assets/img/Transito_Constantino_1200_X_600.png' },
+            { id: 'opera-teatro', titulo: 'Ópera no Teatro Amazonas: temporada 2026', desc: 'O mais importante palco da região Norte recebe espetáculos internacionais.', cat: 'Cultura', img: '../assets/img/Teatro_Amazonas_1200_X_600.png' },
+            { id: 'porao-alemao', titulo: 'Show: Porão do Alemão Rock Bar', desc: 'Uma das casas noturnas mais tradicionais de Manaus recebe bandas de rock.', cat: 'Guia Manaus', img: '../assets/img/Teatro_Amazonas_1200_X_600.png' },
+            { id: 'circuito-tambaqui', titulo: 'Circuito do Tambaqui celebra a culinária amazônica', desc: 'Evento reúne chefs locais no Mercado Adolpho Lisboa.', cat: 'Gastronomia', img: '../assets/img/Circuito_Tambaqui_1200_X_600.png' },
+            { id: 'obras-jorge-teixeira', titulo: 'Obras de revitalização avançam no bairro Jorge Teixeira', desc: 'Prefeitura anuncia nova etapa de asfalto em áreas críticas da Zona Leste.', cat: 'Cotidiano', img: '../assets/img/Obra_Bairro_Jorge_Teixeira_600_X_400.png' },
+            { id: 'policia-centro', titulo: 'Polícia reforça patrulhamento no Centro de Manaus', desc: 'Operação visa diminuir pequenos furtos durante horário comercial.', cat: 'Segurança', img: '../assets/img/Policia_patrulhamento_600_X_400.png' },
+            { id: 'vacinacao-manaus', titulo: 'Campanha de vacinação atinge meta em Manaus', desc: 'Dados da Semsa mostram grande adesão da população.', cat: 'Saúde', img: '../assets/img/Campanha_Vacinacao_Manaus_600_X_400.png' },
+            { id: 'flutuantes-taruma', titulo: '5 Melhores flutuantes para visitar no Tarumã', desc: 'Conheça os melhores espaços de lazer nas águas do igarapé mais famoso de Manaus.', cat: 'Guia Manaus', img: '../assets/img/flutuantes_taruma_1200_X_600.png' },
+            { id: 'plano-diretor', titulo: 'CMM debate novo plano diretor de Manaus', desc: 'Vereadores discutem mudanças no zoneamento urbano e expansão de áreas comerciais.', cat: 'Política', img: '../assets/img/Camara_Municipal_Manaus_1200_X_600.png' }
+        ];
+
+        // pega o termo da URL
+        var params = new URLSearchParams(window.location.search);
+        var termo = params.get('q') || '';
+        var termoLower = termo.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+        // atualiza o titulo
+        var titulo = document.getElementById('titulo-busca');
+        var container = document.getElementById('resultados-container');
+        var inputBusca = document.getElementById('search-input');
+
+        if (inputBusca) inputBusca.value = termo;
+
+        if (!termo) {
+            titulo.textContent = 'Digite algo para buscar';
+            container.innerHTML = '<p style="grid-column:1/-1;font-size:1.1rem;color:var(--gray-medium);">Use o campo de busca acima.</p>';
+        } else {
+            // filtra pelo texto do titulo, descricao e categoria
+            var resultados = noticias.filter(function(n) {
+                var tudo = (n.titulo + ' ' + n.desc + ' ' + n.cat).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                return tudo.includes(termoLower);
+            });
+
+            titulo.textContent = resultados.length + ' resultado(s) para "' + termo + '"';
+
+            if (resultados.length === 0) {
+                container.innerHTML = '<p style="grid-column:1/-1;font-size:1.1rem;color:var(--gray-medium);">Nenhuma notícia encontrada. Tente outros termos.</p>';
+            } else {
+                // monta os cards iguais aos da home
+                var html = '';
+                resultados.forEach(function(n) {
+                    html += '<article class="news-card">'
+                        + '<a href="noticia-interna.html?id=' + n.id + '">'
+                        + '<div class="card-img"><img src="' + n.img + '" alt="' + n.titulo + '" loading="lazy"></div>'
+                        + '<div class="card-content">'
+                        + '<span class="card-category">' + n.cat + '</span>'
+                        + '<h3>' + n.titulo + '</h3>'
+                        + '<p>' + n.desc + '</p>'
+                        + '</div></a></article>';
+                });
+                container.innerHTML = html;
+            }
+        }
+    </script>
+</body>
+</html>

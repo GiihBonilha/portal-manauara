@@ -1,42 +1,24 @@
-/**
- * api.js - Gerenciamento de Dados Externos (APIs)
- * Contém as funções responsáveis por buscar dados reais
- * e simulados para os widgets de utilidade pública do portal.
- */
+// api.js - busca dados de clima e nivel do rio pra exibir no header
 
-/* Objeto de configuração com as URLs das APIs utilizadas */
 var API_CONFIG = {
-    /* API Open-Meteo configurada com coordenadas de Manaus (-3.119, -60.0217) */
-    /* Retorna temperatura atual, umidade e código meteorológico */
-    WEATHER_URL: 'https://api.open-meteo.com/v1/forecast?latitude=-3.119&longitude=-60.0217&current=temperature_2m,relative_humidity_2m,weather_code&timezone=auto'
+    WEATHER_URL: 'https://api.open-meteo.com/v1/forecast?latitude=-3.119&longitude=-60.0217&current=temperature_2m,relative_humidity_2m,weather_code&timezone=auto',
+    RIVER_API_URL: 'https://telemetriaws1.ana.gov.br/ServiceANA.asmx/DadosHidrometeorologicos',
+    RIVER_STATION_CODE: '14990000'
 };
 
-/**
- * Busca dados climáticos reais de Manaus via Open-Meteo (gratuito, sem chave).
- * Retorna um objeto com temperatura, condição textual e ícone emoji.
- */
+// clima de manaus via open-meteo (gratuito, sem chave)
 async function fetchManausWeather() {
     try {
-        /* Faz a requisição HTTP para a API de clima */
         var response = await fetch(API_CONFIG.WEATHER_URL);
+        if (!response.ok) throw new Error('Falha no clima');
 
-        /* Se a resposta não for bem-sucedida, lança um erro */
-        if (!response.ok) throw new Error('Falha na requisição do clima');
-
-        /* Converte a resposta JSON em objeto JavaScript */
         var data = await response.json();
-
-        /* Arredonda a temperatura para inteiro */
         var temp = Math.round(data.current.temperature_2m);
-
-        /* Obtém o código meteorológico WMO da API */
         var code = data.current.weather_code;
 
-        /* Valores padrão para condição e ícone */
         var condition = 'Limpo';
         var icon = '☀️';
 
-        /* Traduz o código numérico em ícone e texto em português */
         if (code >= 1 && code <= 3) {
             icon = '⛅';
             condition = 'Parcialmente Nublado';
@@ -54,61 +36,87 @@ async function fetchManausWeather() {
             condition = 'Tempestade';
         }
 
-        /* Retorna os dados formatados */
-        return {
-            temp: temp,
-            condition: condition,
-            icon: icon
-        };
+        return { temp: temp, condition: condition, icon: icon };
     } catch (error) {
-        /* Em caso de erro, exibe no console e retorna dados de fallback */
-        console.error('Erro ao buscar clima, usando dados simulados:', error);
-        return {
-            temp: 31,
-            condition: 'Nublado',
-            icon: '☁️'
-        };
+        console.error('Erro no clima:', error);
+        return { temp: 31, condition: 'Nublado', icon: '☁️' };
     }
 }
 
-/**
- * Busca o nível do Rio Negro a partir de um arquivo JSON local.
- * O arquivo assets/data/river.json pode ser atualizado manualmente
- * sem necessidade de alterar o código-fonte.
- */
+// nivel do rio negro - tenta a API da ANA primeiro, se nao der usa o JSON local
 async function fetchRiverLevel() {
+    // tentativa 1: API da ANA (tempo real)
     try {
-        /* Tenta buscar o arquivo JSON a partir do diretório relativo */
-        var response = await fetch('../assets/data/river.json');
+        var hoje = new Date();
+        var ontem = new Date(hoje);
+        ontem.setDate(ontem.getDate() - 1);
 
-        /* Se não encontrar, tenta a partir da raiz do projeto */
+        var dataFim = hoje.toLocaleDateString('pt-BR');
+        var dataInicio = ontem.toLocaleDateString('pt-BR');
+
+        var url = API_CONFIG.RIVER_API_URL
+            + '?codEstacao=' + API_CONFIG.RIVER_STATION_CODE
+            + '&dataInicio=' + dataInicio
+            + '&dataFim=' + dataFim;
+
+        // timeout de 5s pra nao travar
+        var controller = new AbortController();
+        var timeoutId = setTimeout(function() { controller.abort(); }, 5000);
+
+        var response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error('API ANA fora');
+
+        var xmlText = await response.text();
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+        var registros = xmlDoc.getElementsByTagName('DadosHidrometeorologicos');
+
+        if (registros.length > 0) {
+            var ultimo = registros[registros.length - 1];
+            var cota = ultimo.getElementsByTagName('Nivel');
+
+            if (cota.length > 0 && cota[0].textContent) {
+                var nivelCm = parseFloat(cota[0].textContent);
+                var nivelM = (nivelCm / 100).toFixed(2);
+
+                var status = 'Estável';
+                if (registros.length >= 2) {
+                    var penultimo = registros[registros.length - 2];
+                    var cotaAnt = penultimo.getElementsByTagName('Nivel');
+                    if (cotaAnt.length > 0 && cotaAnt[0].textContent) {
+                        var nivelAnt = parseFloat(cotaAnt[0].textContent);
+                        if (nivelCm > nivelAnt) status = 'Subindo';
+                        else if (nivelCm < nivelAnt) status = 'Descendo';
+                    }
+                }
+
+                return { level: parseFloat(nivelM), status: status, date: hoje.toLocaleDateString('pt-BR') };
+            }
+        }
+        throw new Error('Sem dados na ANA');
+
+    } catch (error) {
+        console.warn('ANA indisponivel, usando JSON local');
+    }
+
+    // tentativa 2: JSON local
+    try {
+        var response = await fetch('../assets/data/river.json');
         if (!response.ok) {
             var rootResponse = await fetch('assets/data/river.json');
-            if (!rootResponse.ok) throw new Error('Dados do rio não encontrados');
+            if (!rootResponse.ok) throw new Error('JSON nao encontrado');
             var data = await rootResponse.json();
-            return {
-                level: data.river_level,
-                status: data.status,
-                date: data.last_update
-            };
+            return { level: data.river_level, status: data.status, date: data.last_update };
         }
-
-        /* Converte o JSON em objeto */
         var data = await response.json();
-
-        /* Retorna os dados formatados conforme esperado pelo main.js */
-        return {
-            level: data.river_level,
-            status: data.status,
-            date: data.last_update
-        };
+        return { level: data.river_level, status: data.status, date: data.last_update };
     } catch (error) {
-        /* Se tudo falhar, retorna valores fixos de segurança */
-        console.error('Erro ao ler dados do rio, usando fallback:', error);
-        return {
-            level: 26.50,
-            status: 'Estável',
-            date: '18/05/2026'
-        };
+        console.error('JSON tambem falhou:', error);
     }
+
+    // fallback fixo
+    return { level: 26.50, status: 'Estável', date: new Date().toLocaleDateString('pt-BR') };
 }

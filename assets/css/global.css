@@ -1,75 +1,44 @@
-/* ============================================= */
-/* ESTILOS GLOBAIS DO PORTAL MANAUARA            */
-/* Regras base aplicadas em todas as páginas     */
-/* do site: tipografia, container e botões       */
-/* ============================================= */
-
-/* Importa as variáveis de design para uso em todo o sistema */
+/* estilos globais - tipografia, container e botoes */
 @import url('variables.css');
-/* Importa o reset para normalizar os estilos dos navegadores */
 @import url('reset.css');
 
-/* Configuração base do corpo da página */
 body {
-    /* Define Open Sans como fonte padrão para leitura confortável */
     font-family: var(--font-secondary);
-    /* Aplica a cor cinza escuro como padrão para todo texto */
     color: var(--charcoal);
-    /* Espaçamento entre linhas de 1.6 para facilitar a leitura */
     line-height: 1.6;
-    /* Fundo branco para a página inteira */
     background-color: var(--white);
 }
 
-/* Estilização padrão de todos os níveis de título */
 h1, h2, h3, h4, h5, h6 {
-    /* Montserrat é mais impactante e moderna para manchetes */
     font-family: var(--font-primary);
-    /* Peso negrito (700) para dar destaque visual */
     font-weight: 700;
 }
 
-/* Container principal que centraliza e limita a largura do conteúdo */
 .container {
-    /* Ocupa toda a largura disponível da tela */
     width: 100%;
-    /* Não ultrapassa 1200px mesmo em monitores ultrawide */
     max-width: var(--wide);
-    /* Centraliza horizontalmente usando margens automáticas */
     margin: 0 auto;
-    /* Adiciona espaço lateral para o conteúdo não encostar na borda */
     padding: 0 var(--spacing-sm);
 }
 
-/* Classe base para todos os botões do portal */
 .btn {
-    /* Permite definir largura/altura mantendo o fluxo do texto */
     display: inline-block;
-    /* Espaçamento interno confortável para área clicável */
     padding: 0.75rem 1.5rem;
-    /* Cantos levemente arredondados para visual moderno */
     border-radius: 4px;
-    /* Texto em seminegrito para legibilidade */
     font-weight: 600;
-    /* Transição suave no efeito de escurecimento ao passar o mouse */
     transition: filter 0.2s ease;
-    /* Centraliza o texto dentro do botão */
     text-align: center;
 }
 
-/* Efeito visual ao passar o mouse sobre qualquer botão */
 .btn:hover {
-    /* Escurece levemente a cor de fundo para indicar interatividade */
     filter: brightness(0.9);
 }
 
-/* Botão com estilo primário (fundo verde institucional) */
 .btn-primary {
     background-color: var(--verde-manaus);
     color: var(--white);
 }
 
-/* Botão com estilo de destaque (fundo laranja para chamadas de ação) */
 .btn-accent {
     background-color: var(--laranja-sunset);
     color: var(--white);
