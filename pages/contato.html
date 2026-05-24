@@ -2,19 +2,14 @@
 <!-- Página de Contato e Interação com o Leitor -->
 <html lang="pt-br">
 <head>
-    <!-- Codificação para caracteres especiais -->
     <meta charset="UTF-8">
-    <!-- Responsividade para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título da aba do navegador -->
     <title>Contato - Portal Manauara</title>
-    
-    <!-- Google Fonts (Montserrat e Open Sans) -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Estilos CSS (caminhos relativos à pasta /pages) -->
+
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/global.css">
@@ -24,9 +19,7 @@
 </head>
 <body>
 
-    <!-- Cabeçalho Principal -->
     <header id="main-header">
-        <!-- Barra superior com informações dinâmicas -->
         <div class="top-bar">
             <div class="container">
                 <div class="utility-info">
@@ -36,25 +29,21 @@
             </div>
         </div>
 
-        <!-- Barra de Navegação -->
         <nav class="navbar">
             <div class="container">
                 <div class="nav-content">
-                    <!-- Logo com retorno para a Home -->
                     <a href="../index.html" class="logo">
                         <h1>Portal <span>Manauara</span></h1>
                     </a>
-                    
-                    <!-- Menu Principal -->
+
                     <ul class="nav-menu">
                         <li><a href="categoria.html">Cotidiano</a></li>
-                        <li><a href="#">Política</a></li>
-                        <li><a href="#">Guia Manaus</a></li>
-                        <li><a href="#">Cultura</a></li>
-                        <li><a href="#">Turismo</a></li>
+                        <li><a href="politica.html">Política</a></li>
+                        <li><a href="guia-manaus.html">Guia Manaus</a></li>
+                        <li><a href="cultura.html">Cultura</a></li>
+                        <li><a href="turismo.html">Turismo</a></li>
                     </ul>
 
-                    <!-- Ação de destaque -->
                     <div class="nav-actions">
                         <a href="https://wa.me/5592999999999" target="_blank" class="btn btn-accent btn-sm">Repórter Manauara</a>
                     </div>
@@ -63,17 +52,12 @@
         </nav>
     </header>
 
-    <!-- Área de Conteúdo de Contato -->
     <main class="container">
-        <!-- Layout dividido: informações (esquerda) e formulário (direita) -->
         <section class="contact-container">
-            
-            <!-- Coluna de Informações de Contato -->
             <div class="contact-info">
                 <h1>Fale Conosco</h1>
                 <p>Tem uma sugestão de pauta, crítica ou quer anunciar no Portal Manauara? Entre em contato conosco pelos nossos canais oficiais.</p>
-                
-                <!-- Blocos individuais de informação -->
+
                 <div class="info-item">
                     <h3>Redação</h3>
                     <p>redacao@portalmanauara.com.br</p>
@@ -92,38 +76,30 @@
                 </div>
             </div>
 
-            <!-- Coluna do Formulário -->
             <div class="contact-form">
-                <!-- ID configurado para manipulação via contato.js -->
                 <form id="form-contato">
-                    <!-- Campo de Nome -->
                     <div class="form-group">
                         <label for="nome">Nome Completo</label>
                         <input type="text" id="nome" name="nome" required placeholder="Seu nome">
                     </div>
-                    <!-- Campo de E-mail -->
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" required placeholder="seu@email.com">
                     </div>
-                    <!-- Campo de Assunto -->
                     <div class="form-group">
                         <label for="assunto">Assunto</label>
                         <input type="text" id="assunto" name="assunto" required placeholder="Ex: Sugestão de Pauta">
                     </div>
-                    <!-- Área de texto para mensagem -->
                     <div class="form-group">
                         <label for="mensagem">Mensagem</label>
                         <textarea id="mensagem" name="mensagem" required placeholder="Como podemos ajudar?"></textarea>
                     </div>
-                    <!-- Botão de envio -->
                     <button type="submit" class="btn-submit">Enviar Mensagem</button>
                 </form>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé -->
     <footer id="main-footer">
         <div class="container">
             <div class="footer-bottom">
@@ -132,7 +108,6 @@
         </div>
     </footer>
 
-    <!-- Scripts JavaScript -->
     <script src="../assets/js/api.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/menu.js"></script>
