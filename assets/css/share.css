@@ -1,0 +1,51 @@
+/* botoes flutuantes de compartilhamento */
+
+.share-float {
+    position: fixed;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 999;
+}
+
+.share-float a, .share-float button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.share-float a:hover, .share-float button:hover {
+    transform: scale(1.15);
+}
+
+.share-whatsapp { background: #25D366; }
+.share-facebook { background: #1877F2; }
+.share-twitter { background: #000; }
+.share-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.share-copy { background: var(--verde-manaus); }
+
+.share-copy.copiado { background: var(--laranja-sunset); }
+
+@media (max-width: 768px) {
+    .share-float {
+        left: 6px;
+    }
+    .share-float a, .share-float button {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+}
